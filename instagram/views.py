@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse
 
 # Create your views here.
-def welcome(request):
-    return HttpResponse ("---------------------or-------------------")
+def home(request):
+    return render (request, 'home.html')
     
