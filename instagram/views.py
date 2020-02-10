@@ -17,4 +17,7 @@ def home(request):
                 form=UserReagisterForm()
     return render(request, "home.html",{"form":form})
 
+def login(request):
+    return render(request, 'login.html')
+
 

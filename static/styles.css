@@ -37,3 +37,8 @@
     font-family: 'Zhi Mang Xing', cursive;
     font-size:1.7rem;
   }
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
