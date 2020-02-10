@@ -1,4 +1,23 @@
 {%extends 'base.html'%}
+{%load crispy_forms_tags %}
 {%block content%}
-<h1>This is the Log in page</h1>
+<div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="slider-box">
+              <div class="slider"></div>
+            </div>
+          </div>
+          <div class="col-md-6 simonn">
+            <h3 class="title text-center header">The_Gram <img src="https://bit.ly/37e8iLt" alt="gram" style="width:50px;"></h3>
+            <p class="signup text-center para">Sign Up and get to know what your friends are upto!</p>
+            <form action="" method="POST">
+                    {{form | crispy}}
+              {% csrf_token%}
+              
+                <button class="btn btn-info" type="submit">Sign Up</button>
+                <p><small class="text-muted">Already have an account?<a href="#">Sign In</a></small></p>
+            </form>
+          </div>
+        </div>
 {%endblock%}

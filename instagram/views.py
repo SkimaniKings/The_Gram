@@ -12,12 +12,25 @@ def home(request):
             form.save()
             username = form.cleaned_data.get("username")
             messages.success(request, f("Account for {username} has been created successfully"))
-            return redirect("login.html")
+            return redirect("login")
         else:
                 form=UserReagisterForm()
     return render(request, "home.html",{"form":form})
 
 def login(request):
+    form=UserReagisterForm()
+    if request.method == "POST":
+        form=UserReagisterForm(request.POST)
+        if form.is_valid:
+                
+            form.save()
+            username = form.cleaned_data.get("username")
+            messages.success(request, f("Account for {username} has been created successfully"))
+            return redirect("login")
+        else:
+                form=UserReagisterForm()
+    
+    
     return render(request, 'login.html')
 
 
