@@ -10,8 +10,8 @@
         </div>
       </div>
       <div class="col-md-6 simon">
-        <h3 class="title text-center">The_Gram</h3>
-        <p class="signup text-center">Sign Up and get to know what your friends are upto!</p>
+        <h3 class="title text-center header">The_Gram <img src="https://bit.ly/37e8iLt" alt="gram" style="width:50px;"></h3>
+        <p class="signup text-center para">Sign Up and get to know what your friends are upto!</p>
         <form action="" method="POST">
           {% csrf_token%}
           {{form | crispy}}
@@ -20,5 +20,6 @@
         </form>
       </div>
     </div>
+    
 
 {%endblock%}

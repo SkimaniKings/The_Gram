@@ -1,6 +1,6 @@
 .slider {
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     background: url("https://bit.ly/39eyd74") no-repeat center center/cover;
     animation: slide 15s infinite;
     border-radius: 10%;
@@ -25,4 +25,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .simon {
+      margin-top:100px;
+  }
+  .header {
+      font-family: 'Zhi Mang Xing', cursive;
+      font-size: 3rem;
+  }
+  .para {
+    font-family: 'Zhi Mang Xing', cursive;
+    font-size:1.7rem;
   }
