@@ -8,15 +8,14 @@
               <div class="slider"></div>
             </div>
           </div>
-          <div class="col-md-6 simonn">
+          <div class="col-md-6 simon">
             <h3 class="title text-center header">The_Gram <img src="https://bit.ly/37e8iLt" alt="gram" style="width:50px;"></h3>
             <p class="signup text-center para">Sign Up and get to know what your friends are upto!</p>
             <form action="" method="POST">
-                    {{form | crispy}}
               {% csrf_token%}
-              
-                <button class="btn btn-info" type="submit">Sign Up</button>
-                <p><small class="text-muted">Already have an account?<a href="#">Sign In</a></small></p>
+              {{form | crispy}}
+                <button class="btn btn-info" type="submit">Login</button>
+                <p><small class="text-muted">Already have an account?<a href="{% url 'home'%}">Sign In</a></small></p>
             </form>
           </div>
         </div>
