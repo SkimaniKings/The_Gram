@@ -23,6 +23,8 @@ def home(request):
 def profile(request):
     return render(request,"profile.html")
 def home_page(request):
-    return render(request,"home.html")
+    images = Image.objects.all()
+    
+    return render(request,"home.html",{"images":images})
 
 
