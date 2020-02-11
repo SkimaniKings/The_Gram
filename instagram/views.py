@@ -11,19 +11,13 @@ def home(request):
                 
             form.save()
             username = form.cleaned_data.get("username")
-            messages.success(request, f("Account for {username} has been created successfully"))
+            messages.success(request, ("Account for {} has been created successfully").format(username))
             return redirect("login.html")
-        else:
-                form=UserReagisterForm()
+    else:
+        form=UserReagisterForm()
     return render(request, "index.html",{"form":form})
 
-# def login(request):
 
-
-#     return render(request, "login.html")
-
-   
-#     return render(request, "login.html")
 
 
 def profile(request):
