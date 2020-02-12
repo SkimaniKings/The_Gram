@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile,Post
 
 class UserReagisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -20,9 +20,11 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ["image"]
 
-    
+class PostUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ["post","caption"]
 
-    
-    
+
     
     

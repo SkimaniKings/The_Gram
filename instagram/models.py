@@ -10,13 +10,13 @@ class Image(VoteModel,models.Model):
     image = models.ImageField()
     caption = models.CharField(max_length=200)
     date_uploaded = models.DateTimeField(auto_now_add=True)
-    # profile = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     like_add = models.PositiveIntegerField(default=0)
     
 
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
-  image = models.ImageField(default="profile.jpg", upload_to="profile_pics")
+  image = models.ImageField(default="roman_reigns.jpg")
   
   
   def __str__(self):
@@ -28,3 +28,8 @@ class Profile(models.Model):
       output_size = (300, 300)
       img.thumbnail(output_size)
       img.save(self.image.path)
+      
+class Post(models.Model):
+    # user=models.OneToOneField(User, on_delete=models.CASCADE)
+    post = models.ImageField()
+    caption = models.CharField(max_length=200)

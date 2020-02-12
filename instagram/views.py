@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, redirect
-from .forms import UserReagisterForm,UserUpdateForm,ProfileUpdateForm
+from .forms import UserReagisterForm,UserUpdateForm,ProfileUpdateForm,PostUpdateForm
 from django.contrib import messages
 from .models import Image,Profile
 from django.contrib.auth.decorators import login_required
@@ -48,6 +48,18 @@ def update(request):
     "p_form" : p_form
   }
   return render(request, "update_profile.html", context)
+
+@login_required()
+def post_image(request):
+    
+    if request.method == "POST":
+        form=PostUpdateForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form=PostUpdateForm
+  
+    return render(request,"post_image.html",{"form":form})
 
 
 
