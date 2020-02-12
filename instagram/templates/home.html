@@ -1,6 +1,27 @@
-{%extends 'base.html'%}
+ {%extends 'base.html'%}
 {%block content %}
-{%for image in images%}
-<p>{{image.caption}}</p>
-{%end for%}
+
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        {% for image in images %}
+        <div class="col-sm-3">
+            <div class="img-box mb-2" style="width: 20rem;">
+
+                <img class="portfolio thumbnail img-el img-fluid" src="{{image.image.url}}" alt="IMAGE LOADING..."
+                    data-toggle="modal" data-target="#exampleModalCenter-{{image.id}}">
+            </div>
+            <div class="words">
+                <h4 class="text-bold"> Title:{{image.caption}} </h4>
+                <p>
+                    <p>Posted: {{image.date_uploaded}}</p>
+
+                </p>
+                <p>
+
+                </p>
+                <hr>
+            </div>
+        </div>
+{%endfor%}
 {%endblock content%}

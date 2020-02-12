@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from .forms import UserReagisterForm
 from django.contrib import messages
+from .models import Image
 
 def home(request):
     form=UserReagisterForm()
@@ -22,9 +23,9 @@ def home(request):
 
 def profile(request):
     return render(request,"profile.html")
+
 def home_page(request):
     images = Image.objects.all()
-    
     return render(request,"home.html",{"images":images})
 
 
