@@ -1,8 +1,9 @@
 
 from django.shortcuts import render, redirect
-from .forms import UserReagisterForm
+from .forms import UserReagisterForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib import messages
-from .models import Image
+from .models import Image,Profile
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     form=UserReagisterForm()
@@ -20,7 +21,7 @@ def home(request):
 
 
 
-
+@login_required()
 def profile(request):
     
     return render(request,"profile.html")
@@ -28,5 +29,26 @@ def profile(request):
 def home_page(request):
     images = Image.objects.all()
     return render(request,"home.html",{"images":images})
+
+@login_required()
+def update(request):
+  if request.method == "POST":
+    u_form = UserUpdateForm(request.POST, instance=request.user)
+    p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+    if u_form.is_valid() and p_form.is_valid():
+      u_form.save()
+      p_form.save()
+      messages.success(request, "Profile updated successfully")
+      return redirect("update_profile")
+  else:
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+  context = {
+    "u_form" : u_form,
+    "p_form" : p_form
+  }
+  return render(request, "update_profile.html", context)
+
+
 
 
