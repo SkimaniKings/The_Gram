@@ -13,11 +13,43 @@
       </div>
       <p>{{user.email}}</p>
       <div class="profile-data d-flex">
-        <p>0 posts</p>
+        <p>{{posts | length }} posts</p>
         <p class="px-3">0 follower</p>
         <p>0 following</p>
       </div>
     </div>
   </div>
 </div>
+<div class="container">
+<p>Hey, {{user.username}} you have {{posts | length }} so far.</p>
+<p>{{post.user}}</p>
+</div>
+{%for post in posts%}
+<div class="container">
+ 
+
+    <div class="card carding " style="width: 20rem;">
+        <h5 class="card-header">{{user.username}}</h5>
+      <img src="{{post.post.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <div class="icons">
+          <div><i class="far fa-heart fa-2x heart"></i></div>
+          <script>
+            $(document).ready(function(){
+              $(".heart").click(function(){
+                alert("You have just liked this Image!")
+              })
+            })
+          </script>
+          <div><i class="far fa-comment fa-2x"></i></div>
+          <div><i class="fas fa-paper-plane fa-2x"></i></div>
+          
+        </div>
+        <p>Liked by <em class="font-weight-bold">{{user.username}}</em> and <em class="font-weight-bold">others</em></p>
+        <p class="card-text">{{post.caption}}</p>
+        <!-- <p class="card-text text-muted">{{image.date_uploaded}}</p> -->
+      </div>
+    </div>
+    </div>
+{%endfor%}
 {% endblock %}

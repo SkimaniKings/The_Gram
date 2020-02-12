@@ -1,6 +1,33 @@
  {%extends 'base.html'%}
 {%block content %}
 {%include "navbar.html"%}
+{%for post in posts%}
+<div class="container">
+    <div class="card carding" style="width: 40rem;">
+        <h5 class="card-header">{{user.username}}</h5>
+        
+      <img src="{{post.post.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <div class="icons">
+          <div><i class="far fa-heart fa-2x heart"></i></div>
+          <script>
+            $(document).ready(function(){
+              $(".heart").click(function(){
+                alert("You have just liked this Image!")
+              })
+            })
+          </script>
+          <div><i class="far fa-comment fa-2x"></i></div>
+          <div><i class="fas fa-paper-plane fa-2x"></i></div>
+          
+        </div>
+        <p>Liked by <em class="font-weight-bold">{{user.username}}</em> and <em class="font-weight-bold">others</em></p>
+        <p class="card-text">{{post.caption}}</p>
+        <!-- <p class="card-text text-muted">{{image.date_uploaded}}</p> -->
+      </div>
+    </div>
+    </div>
+{%endfor%}
 {% for image in images %}
 <div class="container">
 <div class="card carding" style="width: 40rem;">

@@ -2,10 +2,11 @@
 from django.shortcuts import render, redirect
 from .forms import UserReagisterForm,UserUpdateForm,ProfileUpdateForm,PostUpdateForm
 from django.contrib import messages
-from .models import Image,Profile
+from .models import Image,Profile,Post
 from django.contrib.auth.decorators import login_required
 
 def home(request):
+    
     form=UserReagisterForm()
     if request.method == "POST":
         form=UserReagisterForm(request.POST)
@@ -23,12 +24,14 @@ def home(request):
 
 @login_required()
 def profile(request):
+    posts = Post.objects.all()
     
-    return render(request,"profile.html")
+    return render(request,"profile.html",{"posts":posts})
 
 def home_page(request):
+    posts = Post.objects.all()
     images = Image.objects.all()
-    return render(request,"home.html",{"images":images})
+    return render(request,"home.html",{"images":images,"posts": posts})
 
 @login_required()
 def update(request):
@@ -56,6 +59,7 @@ def post_image(request):
         form=PostUpdateForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
+            return redirect("home_page")
     else:
         form=PostUpdateForm
   

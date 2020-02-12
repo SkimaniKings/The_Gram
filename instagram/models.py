@@ -30,6 +30,9 @@ class Profile(models.Model):
       img.save(self.image.path)
       
 class Post(models.Model):
-    # user=models.OneToOneField(User, on_delete=models.CASCADE)
+    user=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     post = models.ImageField()
     caption = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.post()
