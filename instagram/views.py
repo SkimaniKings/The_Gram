@@ -33,16 +33,16 @@ def home_page(request):
 @login_required()
 def update(request):
   if request.method == "POST":
-    u_form = UserUpdateForm(request.POST, instance=request.user)
-    p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+    u_form = UserUpdateForm(request.POST)
+    p_form = ProfileUpdateForm(request.POST, request.FILES)
     if u_form.is_valid() and p_form.is_valid():
       u_form.save()
-      p_form.save()
+    #   p_form.save()
       messages.success(request, "Profile updated successfully")
-      return redirect("update_profile")
+      return redirect("update")
   else:
     u_form = UserUpdateForm(instance=request.user)
-    p_form = ProfileUpdateForm(instance=request.user.profile)
+    p_form = ProfileUpdateForm()
   context = {
     "u_form" : u_form,
     "p_form" : p_form

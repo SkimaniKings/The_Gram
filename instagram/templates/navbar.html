@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="main">
+    <div class="container">
+      <div class="nav">
+        
+        <div class="home">
+          <p class="insta-icon"><i class="fab fa-instagram fa-3x"></i></p>
+          <a href="{% url 'home_page' %}"> <h3 class="home-title para">The_Gram</h3></a>
+        </div>
+        </a>
+        <div class="search-form">
+          <input type="text" placeholder="Search" class="text-center" />
+        </div>
+        <div class="insta-functions">
+          <p><i class="far fa-compass fa-2x"></i></p>
+          <p class="insta-heart"><i class="far fa-heart fa-2x"></i></p>
+          <p><a href="{% url 'profile' %}"><i class="far fa-user fa-2x"></i></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%endblock%}

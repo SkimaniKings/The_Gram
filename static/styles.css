@@ -45,3 +45,51 @@
 .simonn{
   margin-top:150px;
 }
+.home-title {
+
+  font-size: 2rem;
+  padding: 0 1rem;
+  ;
+}
+.home {
+  display: flex;
+  margin: 1rem 0;
+  align-items: center;
+}
+.insta-icon {
+  padding: 0 1rem;
+  border-right: 2px solid #000
+}
+.insta-functions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.insta-heart {
+  padding: 0 2rem;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main {
+  border-bottom: 2px solid #D3D3D3;
+}
+.nav a {
+  color: #000;
+  text-decoration: none;
+}
+.prof_edit>a{
+  display: block;
+  color: #000;
+  border: 1px solid #000;
+  padding: 0.3rem;
+  border-radius:4px;
+}
+.prof_edit>a:hover{
+  text-decoration: none;
+  background: #000;
+  color: #fff;
+  transition: all 0.5s ease-in;
+}

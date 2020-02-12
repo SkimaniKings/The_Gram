@@ -10,7 +10,7 @@ class Image(VoteModel,models.Model):
     image = models.ImageField()
     caption = models.CharField(max_length=200)
     date_uploaded = models.DateTimeField(auto_now_add=True)
-    profile = models.ForeignKey(User, on_delete=models.CASCADE)
+    # profile = models.ForeignKey(User, on_delete=models.CASCADE)
     like_add = models.PositiveIntegerField(default=0)
     
 
